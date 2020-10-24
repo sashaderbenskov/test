@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_testtest" default="compile.module.testtest">
+  <dirname property="module.testtest.basedir" file="${ant.file.module_testtest}"/>
+  
+  <property name="module.jdk.home.testtest" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.testtest" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.testtest" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.testtest" value="-encoding UTF-8 -source 5 -target 1.5 ${compiler.args}"/>
+  
+  <property name="testtest.output.dir" value="${module.testtest.basedir}/target/classes"/>
+  <property name="testtest.testoutput.dir" value="${module.testtest.basedir}/target/test-classes"/>
+  
+  <path id="testtest.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="testtest.module.production.classpath">
+    <path refid="${module.jdk.classpath.testtest}"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-java:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-api:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-chrome-driver:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_com.google.auto.service:auto-service-annotations:1.0-rc6.classpath"/>
+    <path refid="library.maven:_com.google.auto.service:auto-service:1.0-rc6.classpath"/>
+    <path refid="library.maven:_com.google.auto:auto-common:0.10.classpath"/>
+    <path refid="library.maven:_com.google.guava:guava:29.0-jre.classpath"/>
+    <path refid="library.maven:_com.google.guava:failureaccess:1.0.1.classpath"/>
+    <path refid="library.maven:_com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava.classpath"/>
+    <path refid="library.maven:_com.google.code.findbugs:jsr305:3.0.2.classpath"/>
+    <path refid="library.maven:_org.checkerframework:checker-qual:2.11.1.classpath"/>
+    <path refid="library.maven:_com.google.errorprone:error_prone_annotations:2.3.4.classpath"/>
+    <path refid="library.maven:_com.google.j2objc:j2objc-annotations:1.3.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-chromium-driver:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-devtools:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-http:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-json:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-edge-driver:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-edgehtml-driver:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-firefox-driver:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-firefox-xpi-driver:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-ie-driver:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-opera-driver:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-remote-driver:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_com.squareup.okhttp3:okhttp:4.5.0.classpath"/>
+    <path refid="library.maven:_org.jetbrains.kotlin:kotlin-stdlib:1.3.70.classpath"/>
+    <path refid="library.maven:_org.jetbrains:annotations:13.0.classpath"/>
+    <path refid="library.maven:_com.squareup.okio:okio:2.6.0.classpath"/>
+    <path refid="library.maven:_org.jetbrains.kotlin:kotlin-stdlib-common:1.3.70.classpath"/>
+    <path refid="library.maven:_com.typesafe.netty:netty-reactive-streams:2.0.4.classpath"/>
+    <path refid="library.maven:_io.netty:netty-handler:4.1.43.final.classpath"/>
+    <path refid="library.maven:_org.reactivestreams:reactive-streams:1.0.3.classpath"/>
+    <path refid="library.maven:_io.grpc:grpc-context:1.28.0.classpath"/>
+    <path refid="library.maven:_io.netty:netty-buffer:4.1.49.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-common:4.1.49.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-codec-http:4.1.49.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-codec:4.1.49.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-transport-native-epoll:4.1.49.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-transport-native-epoll:linux-x86_64:4.1.49.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-transport-native-kqueue:4.1.49.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-transport-native-kqueue:osx-x86_64:4.1.49.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-transport-native-unix-common:4.1.49.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-transport:4.1.49.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-resolver:4.1.49.final.classpath"/>
+    <path refid="library.maven:_io.opentelemetry:opentelemetry-api:0.4.0.classpath"/>
+    <path refid="library.maven:_io.opentelemetry:opentelemetry-context-prop:0.4.0.classpath"/>
+    <path refid="library.maven:_io.opentelemetry:opentelemetry-sdk:0.4.0.classpath"/>
+    <path refid="library.maven:_io.projectreactor.netty:reactor-netty:0.9.6.release.classpath"/>
+    <path refid="library.maven:_io.netty:netty-codec-http2:4.1.48.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-handler-proxy:4.1.48.final.classpath"/>
+    <path refid="library.maven:_io.projectreactor:reactor-core:3.3.5.release.classpath"/>
+    <path refid="library.maven:_net.bytebuddy:byte-buddy:1.10.9.classpath"/>
+    <path refid="library.maven:_org.apache.commons:commons-exec:1.3.classpath"/>
+    <path refid="library.maven:_org.asynchttpclient:async-http-client:2.12.1.classpath"/>
+    <path refid="library.maven:_org.asynchttpclient:async-http-client-netty-utils:2.12.1.classpath"/>
+    <path refid="library.maven:_io.netty:netty-codec-socks:4.1.48.final.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.7.30.classpath"/>
+    <path refid="library.maven:_com.sun.activation:javax.activation:1.2.0.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-safari-driver:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-support:4.0.0-alpha-6.classpath"/>
+  </path>
+  
+  <path id="testtest.runtime.production.module.classpath">
+    <pathelement location="${testtest.output.dir}"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-java:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-api:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-chrome-driver:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_com.google.auto.service:auto-service-annotations:1.0-rc6.classpath"/>
+    <path refid="library.maven:_com.google.auto.service:auto-service:1.0-rc6.classpath"/>
+    <path refid="library.maven:_com.google.auto:auto-common:0.10.classpath"/>
+    <path refid="library.maven:_com.google.guava:guava:29.0-jre.classpath"/>
+    <path refid="library.maven:_com.google.guava:failureaccess:1.0.1.classpath"/>
+    <path refid="library.maven:_com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava.classpath"/>
+    <path refid="library.maven:_com.google.code.findbugs:jsr305:3.0.2.classpath"/>
+    <path refid="library.maven:_org.checkerframework:checker-qual:2.11.1.classpath"/>
+    <path refid="library.maven:_com.google.errorprone:error_prone_annotations:2.3.4.classpath"/>
+    <path refid="library.maven:_com.google.j2objc:j2objc-annotations:1.3.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-chromium-driver:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-devtools:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-http:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-json:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-edge-driver:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-edgehtml-driver:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-firefox-driver:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-firefox-xpi-driver:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-ie-driver:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-opera-driver:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-remote-driver:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_com.squareup.okhttp3:okhttp:4.5.0.classpath"/>
+    <path refid="library.maven:_org.jetbrains.kotlin:kotlin-stdlib:1.3.70.classpath"/>
+    <path refid="library.maven:_org.jetbrains:annotations:13.0.classpath"/>
+    <path refid="library.maven:_com.squareup.okio:okio:2.6.0.classpath"/>
+    <path refid="library.maven:_org.jetbrains.kotlin:kotlin-stdlib-common:1.3.70.classpath"/>
+    <path refid="library.maven:_com.typesafe.netty:netty-reactive-streams:2.0.4.classpath"/>
+    <path refid="library.maven:_io.netty:netty-handler:4.1.43.final.classpath"/>
+    <path refid="library.maven:_org.reactivestreams:reactive-streams:1.0.3.classpath"/>
+    <path refid="library.maven:_io.grpc:grpc-context:1.28.0.classpath"/>
+    <path refid="library.maven:_io.netty:netty-buffer:4.1.49.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-common:4.1.49.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-codec-http:4.1.49.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-codec:4.1.49.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-transport-native-epoll:4.1.49.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-transport-native-epoll:linux-x86_64:4.1.49.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-transport-native-kqueue:4.1.49.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-transport-native-kqueue:osx-x86_64:4.1.49.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-transport-native-unix-common:4.1.49.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-transport:4.1.49.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-resolver:4.1.49.final.classpath"/>
+    <path refid="library.maven:_io.opentelemetry:opentelemetry-api:0.4.0.classpath"/>
+    <path refid="library.maven:_io.opentelemetry:opentelemetry-context-prop:0.4.0.classpath"/>
+    <path refid="library.maven:_io.opentelemetry:opentelemetry-sdk:0.4.0.classpath"/>
+    <path refid="library.maven:_io.projectreactor.netty:reactor-netty:0.9.6.release.classpath"/>
+    <path refid="library.maven:_io.netty:netty-codec-http2:4.1.48.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-handler-proxy:4.1.48.final.classpath"/>
+    <path refid="library.maven:_io.projectreactor:reactor-core:3.3.5.release.classpath"/>
+    <path refid="library.maven:_net.bytebuddy:byte-buddy:1.10.9.classpath"/>
+    <path refid="library.maven:_org.apache.commons:commons-exec:1.3.classpath"/>
+    <path refid="library.maven:_org.asynchttpclient:async-http-client:2.12.1.classpath"/>
+    <path refid="library.maven:_org.asynchttpclient:async-http-client-netty-utils:2.12.1.classpath"/>
+    <path refid="library.maven:_io.netty:netty-codec-socks:4.1.48.final.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.7.30.classpath"/>
+    <path refid="library.maven:_com.sun.activation:javax.activation:1.2.0.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-safari-driver:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-support:4.0.0-alpha-6.classpath"/>
+  </path>
+  
+  <path id="testtest.module.classpath">
+    <path refid="${module.jdk.classpath.testtest}"/>
+    <pathelement location="${testtest.output.dir}"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-java:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-api:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-chrome-driver:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_com.google.auto.service:auto-service-annotations:1.0-rc6.classpath"/>
+    <path refid="library.maven:_com.google.auto.service:auto-service:1.0-rc6.classpath"/>
+    <path refid="library.maven:_com.google.auto:auto-common:0.10.classpath"/>
+    <path refid="library.maven:_com.google.guava:guava:29.0-jre.classpath"/>
+    <path refid="library.maven:_com.google.guava:failureaccess:1.0.1.classpath"/>
+    <path refid="library.maven:_com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava.classpath"/>
+    <path refid="library.maven:_com.google.code.findbugs:jsr305:3.0.2.classpath"/>
+    <path refid="library.maven:_org.checkerframework:checker-qual:2.11.1.classpath"/>
+    <path refid="library.maven:_com.google.errorprone:error_prone_annotations:2.3.4.classpath"/>
+    <path refid="library.maven:_com.google.j2objc:j2objc-annotations:1.3.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-chromium-driver:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-devtools:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-http:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-json:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-edge-driver:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-edgehtml-driver:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-firefox-driver:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-firefox-xpi-driver:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-ie-driver:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-opera-driver:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-remote-driver:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_com.squareup.okhttp3:okhttp:4.5.0.classpath"/>
+    <path refid="library.maven:_org.jetbrains.kotlin:kotlin-stdlib:1.3.70.classpath"/>
+    <path refid="library.maven:_org.jetbrains:annotations:13.0.classpath"/>
+    <path refid="library.maven:_com.squareup.okio:okio:2.6.0.classpath"/>
+    <path refid="library.maven:_org.jetbrains.kotlin:kotlin-stdlib-common:1.3.70.classpath"/>
+    <path refid="library.maven:_com.typesafe.netty:netty-reactive-streams:2.0.4.classpath"/>
+    <path refid="library.maven:_io.netty:netty-handler:4.1.43.final.classpath"/>
+    <path refid="library.maven:_org.reactivestreams:reactive-streams:1.0.3.classpath"/>
+    <path refid="library.maven:_io.grpc:grpc-context:1.28.0.classpath"/>
+    <path refid="library.maven:_io.netty:netty-buffer:4.1.49.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-common:4.1.49.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-codec-http:4.1.49.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-codec:4.1.49.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-transport-native-epoll:4.1.49.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-transport-native-epoll:linux-x86_64:4.1.49.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-transport-native-kqueue:4.1.49.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-transport-native-kqueue:osx-x86_64:4.1.49.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-transport-native-unix-common:4.1.49.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-transport:4.1.49.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-resolver:4.1.49.final.classpath"/>
+    <path refid="library.maven:_io.opentelemetry:opentelemetry-api:0.4.0.classpath"/>
+    <path refid="library.maven:_io.opentelemetry:opentelemetry-context-prop:0.4.0.classpath"/>
+    <path refid="library.maven:_io.opentelemetry:opentelemetry-sdk:0.4.0.classpath"/>
+    <path refid="library.maven:_io.projectreactor.netty:reactor-netty:0.9.6.release.classpath"/>
+    <path refid="library.maven:_io.netty:netty-codec-http2:4.1.48.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-handler-proxy:4.1.48.final.classpath"/>
+    <path refid="library.maven:_io.projectreactor:reactor-core:3.3.5.release.classpath"/>
+    <path refid="library.maven:_net.bytebuddy:byte-buddy:1.10.9.classpath"/>
+    <path refid="library.maven:_org.apache.commons:commons-exec:1.3.classpath"/>
+    <path refid="library.maven:_org.asynchttpclient:async-http-client:2.12.1.classpath"/>
+    <path refid="library.maven:_org.asynchttpclient:async-http-client-netty-utils:2.12.1.classpath"/>
+    <path refid="library.maven:_io.netty:netty-codec-socks:4.1.48.final.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.7.30.classpath"/>
+    <path refid="library.maven:_com.sun.activation:javax.activation:1.2.0.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-safari-driver:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-support:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_junit:junit:4.13.1.classpath"/>
+    <path refid="library.maven:_org.hamcrest:hamcrest-core:1.3.classpath"/>
+  </path>
+  
+  <path id="testtest.runtime.module.classpath">
+    <pathelement location="${testtest.testoutput.dir}"/>
+    <pathelement location="${testtest.output.dir}"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-java:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-api:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-chrome-driver:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_com.google.auto.service:auto-service-annotations:1.0-rc6.classpath"/>
+    <path refid="library.maven:_com.google.auto.service:auto-service:1.0-rc6.classpath"/>
+    <path refid="library.maven:_com.google.auto:auto-common:0.10.classpath"/>
+    <path refid="library.maven:_com.google.guava:guava:29.0-jre.classpath"/>
+    <path refid="library.maven:_com.google.guava:failureaccess:1.0.1.classpath"/>
+    <path refid="library.maven:_com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava.classpath"/>
+    <path refid="library.maven:_com.google.code.findbugs:jsr305:3.0.2.classpath"/>
+    <path refid="library.maven:_org.checkerframework:checker-qual:2.11.1.classpath"/>
+    <path refid="library.maven:_com.google.errorprone:error_prone_annotations:2.3.4.classpath"/>
+    <path refid="library.maven:_com.google.j2objc:j2objc-annotations:1.3.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-chromium-driver:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-devtools:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-http:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-json:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-edge-driver:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-edgehtml-driver:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-firefox-driver:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-firefox-xpi-driver:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-ie-driver:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-opera-driver:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-remote-driver:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_com.squareup.okhttp3:okhttp:4.5.0.classpath"/>
+    <path refid="library.maven:_org.jetbrains.kotlin:kotlin-stdlib:1.3.70.classpath"/>
+    <path refid="library.maven:_org.jetbrains:annotations:13.0.classpath"/>
+    <path refid="library.maven:_com.squareup.okio:okio:2.6.0.classpath"/>
+    <path refid="library.maven:_org.jetbrains.kotlin:kotlin-stdlib-common:1.3.70.classpath"/>
+    <path refid="library.maven:_com.typesafe.netty:netty-reactive-streams:2.0.4.classpath"/>
+    <path refid="library.maven:_io.netty:netty-handler:4.1.43.final.classpath"/>
+    <path refid="library.maven:_org.reactivestreams:reactive-streams:1.0.3.classpath"/>
+    <path refid="library.maven:_io.grpc:grpc-context:1.28.0.classpath"/>
+    <path refid="library.maven:_io.netty:netty-buffer:4.1.49.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-common:4.1.49.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-codec-http:4.1.49.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-codec:4.1.49.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-transport-native-epoll:4.1.49.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-transport-native-epoll:linux-x86_64:4.1.49.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-transport-native-kqueue:4.1.49.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-transport-native-kqueue:osx-x86_64:4.1.49.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-transport-native-unix-common:4.1.49.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-transport:4.1.49.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-resolver:4.1.49.final.classpath"/>
+    <path refid="library.maven:_io.opentelemetry:opentelemetry-api:0.4.0.classpath"/>
+    <path refid="library.maven:_io.opentelemetry:opentelemetry-context-prop:0.4.0.classpath"/>
+    <path refid="library.maven:_io.opentelemetry:opentelemetry-sdk:0.4.0.classpath"/>
+    <path refid="library.maven:_io.projectreactor.netty:reactor-netty:0.9.6.release.classpath"/>
+    <path refid="library.maven:_io.netty:netty-codec-http2:4.1.48.final.classpath"/>
+    <path refid="library.maven:_io.netty:netty-handler-proxy:4.1.48.final.classpath"/>
+    <path refid="library.maven:_io.projectreactor:reactor-core:3.3.5.release.classpath"/>
+    <path refid="library.maven:_net.bytebuddy:byte-buddy:1.10.9.classpath"/>
+    <path refid="library.maven:_org.apache.commons:commons-exec:1.3.classpath"/>
+    <path refid="library.maven:_org.asynchttpclient:async-http-client:2.12.1.classpath"/>
+    <path refid="library.maven:_org.asynchttpclient:async-http-client-netty-utils:2.12.1.classpath"/>
+    <path refid="library.maven:_io.netty:netty-codec-socks:4.1.48.final.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.7.30.classpath"/>
+    <path refid="library.maven:_com.sun.activation:javax.activation:1.2.0.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-safari-driver:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_org.seleniumhq.selenium:selenium-support:4.0.0-alpha-6.classpath"/>
+    <path refid="library.maven:_junit:junit:4.13.1.classpath"/>
+    <path refid="library.maven:_org.hamcrest:hamcrest-core:1.3.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.testtest">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.testtest">
+    <patternset refid="excluded.from.module.testtest"/>
+  </patternset>
+  
+  <path id="testtest.module.sourcepath">
+    <dirset dir="${module.testtest.basedir}">
+      <include name="src/main/java"/>
+      <include name="src/main/resources"/>
+    </dirset>
+  </path>
+  
+  <path id="testtest.module.test.sourcepath">
+    <dirset dir="${module.testtest.basedir}">
+      <include name="src/test/java"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.testtest" depends="compile.module.testtest.production,compile.module.testtest.tests" description="Compile module testtest"/>
+  
+  <target name="compile.module.testtest.production" depends="register.custom.compilers" description="Compile module testtest; production classes">
+    <mkdir dir="${testtest.output.dir}"/>
+    <javac2 destdir="${testtest.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.testtest}/javac">
+      <compilerarg line="${compiler.args.testtest}"/>
+      <bootclasspath refid="testtest.module.bootclasspath"/>
+      <classpath refid="testtest.module.production.classpath"/>
+      <src refid="testtest.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.testtest"/>
+    </javac2>
+    
+    <copy todir="${testtest.output.dir}">
+      <fileset dir="${module.testtest.basedir}/src/main/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.testtest.basedir}/src/main/resources">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.testtest.tests" depends="register.custom.compilers,compile.module.testtest.production" description="compile module testtest; test classes" unless="skip.tests">
+    <mkdir dir="${testtest.testoutput.dir}"/>
+    <javac2 destdir="${testtest.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.testtest}/javac">
+      <compilerarg line="${compiler.args.testtest}"/>
+      <bootclasspath refid="testtest.module.bootclasspath"/>
+      <classpath refid="testtest.module.classpath"/>
+      <src refid="testtest.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.testtest"/>
+    </javac2>
+    
+    <copy todir="${testtest.testoutput.dir}">
+      <fileset dir="${module.testtest.basedir}/src/test/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="clean.module.testtest" description="cleanup module">
+    <delete dir="${testtest.output.dir}"/>
+    <delete dir="${testtest.testoutput.dir}"/>
+  </target>
+</project>
